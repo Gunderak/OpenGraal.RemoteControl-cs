@@ -302,13 +302,13 @@
       <Project>{BF323091-36E1-4A64-97A2-A62E5F5ABC1B}</Project>
       <Name>OpenGraal.Common</Name>
     </ProjectReference>
-    <ProjectReference Include="..\..\..\opengraal.core-cs\trunk\OpenGraal.Core\OpenGraal.Core.csproj">
-      <Project>{CC4AF8B5-BECF-4562-A0E5-94FBE0FBAB8F}</Project>
-      <Name>OpenGraal.Core</Name>
-    </ProjectReference>
     <ProjectReference Include="..\..\..\opengraal.common.connections-cs\trunk\OpenGraal.Common.Connections\OpenGraal.Common.Connections.csproj">
       <Project>{8914345C-BDA5-4753-8E52-3A88D4F2E6DF}</Project>
       <Name>OpenGraal.Common.Connections</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\opengraal.core-cs\trunk\OpenGraal.Core\OpenGraal.Core.csproj">
+      <Project>{CC4AF8B5-BECF-4562-A0E5-94FBE0FBAB8F}</Project>
+      <Name>OpenGraal.Core</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>
