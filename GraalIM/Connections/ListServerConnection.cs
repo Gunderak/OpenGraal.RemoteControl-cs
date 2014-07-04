@@ -18,7 +18,8 @@ namespace OpenGraal.GraalIM
 			LEVELLINK = 1,
 			BADDYPROPS = 2,
 			NPCPROPS = 3,
-			LEVELCHEST = 4,
+			// Used as incorrect password packet in list server.
+			INCORRPASS = 4,
 			LEVELSIGN = 5,
 			LEVELNAME = 6,
 			BOARDMODIFY = 7,
@@ -470,6 +471,7 @@ namespace OpenGraal.GraalIM
 		/// Member Variables
 		/// </summary>
 		protected ServerWindow serverWindow;
+		protected LoginWindow loginWindow;
 		public ErrorWindow errorWindow;
 		//protected GraalPlayer NCPlayer;
 		//protected GraalLevel ActiveLevel = null;
@@ -487,6 +489,7 @@ namespace OpenGraal.GraalIM
 			this.listStore = listStore;
 			this.serverList = new TServerList();
 			this.errorWindow = ErrorWindow.GetInstance();
+			this.loginWindow = LoginWindow.GetInstance();
 			//this.errorWindow.ShowAll();
 			//this.errorWindow.Hide();
 			//this.ReceiveData();
@@ -551,17 +554,19 @@ namespace OpenGraal.GraalIM
 				// Call Packet Callback
 				//RemoteControl.CallCallBack(PacketId, (CString)CurPacket.DeepClone());
 
+				Console.WriteLine("ServerLister Packet Received: " + (PacketIn)PacketId);
+
 				// Run Internal Packet Function
 				switch ((PacketIn)PacketId)
 				{
-					case PacketIn.LEVELCHEST:
+					case PacketIn.INCORRPASS:
 						{
 							CString Message = CurPacket.ReadString();
 						
 							this.serverWindow.ErrorMsg = Message.Text.ToString();
-						
-							//this.errorWindow.error_label.Text = Message.Text.ToString();
-						
+							this.loginWindow.Show();
+							ErrorWindow.GetInstance().SetTextAndShow(this.serverWindow.ErrorMsg);
+							this.serverWindow.Destroy();
 						
 							break;
 						}

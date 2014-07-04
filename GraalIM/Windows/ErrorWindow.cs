@@ -31,6 +31,12 @@ namespace OpenGraal.GraalIM
 			this.Hide();
 		}
 
+		public void SetTextAndShow(String text) {
+			this.error_label = new Gtk.Label("Error!: " + text);
+			this.Add(error_label);
+			this.ShowAll();
+		}
+
 		private void Close(object sender, Gtk.DeleteEventArgs e)
 		{
 			this.ErrorWindow_Closed(sender, e);
