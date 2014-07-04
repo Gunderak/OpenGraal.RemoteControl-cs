@@ -21,7 +21,6 @@ namespace OpenGraal.GraalIM
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ErrorWindow));
 			
 			this.SetPosition(Gtk.WindowPosition.Center);
-			this.Title = "Error!";
 			this.Name = "OpenGraal.GraalIM.ErrorWindow";
 			this.Title = global::Mono.Unix.Catalog.GetString ("Error!");
 			this.Icon = global::Gdk.Pixbuf.LoadFromResource ("OpenGraal.GraalIM.Resources.rcicon.ico");
