@@ -471,6 +471,7 @@ namespace OpenGraal.GraalIM
 		/// Member Variables
 		/// </summary>
 		protected ServerWindow serverWindow;
+		protected LoginWindow loginWindow;
 		public ErrorWindow errorWindow;
 		//protected GraalPlayer NCPlayer;
 		//protected GraalLevel ActiveLevel = null;
@@ -488,6 +489,7 @@ namespace OpenGraal.GraalIM
 			this.listStore = listStore;
 			this.serverList = new TServerList();
 			this.errorWindow = ErrorWindow.GetInstance();
+			this.loginWindow = LoginWindow.GetInstance();
 			//this.errorWindow.ShowAll();
 			//this.errorWindow.Hide();
 			//this.ReceiveData();
@@ -562,13 +564,9 @@ namespace OpenGraal.GraalIM
 							CString Message = CurPacket.ReadString();
 						
 							this.serverWindow.ErrorMsg = Message.Text.ToString();
-							this.serverWindow.Hide();
-
+							this.loginWindow.Show();
 							ErrorWindow.GetInstance().SetTextAndShow(this.serverWindow.ErrorMsg);
-						
-							//this.errorWindow.error_label.Text = this.serverWindow.ErrorMsg;
-
-						
+							this.serverWindow.Destroy();
 						
 							break;
 						}
